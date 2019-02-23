@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+    <LinearLayout
+            android:paddingLeft="15dp"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="49dp">
+        <ImageButton android:layout_width="46dp" android:layout_height="wrap_content"
+                     android:src="@mipmap/ic__star_2" android:contentDescription="TODO"
+        />
+        <TextView
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:text="@string/wordoftheday_logo"
+                android:layout_width="212dp"
+                android:layout_height="match_parent" android:id="@+id/textView" android:textSize="20sp"/>
+    </LinearLayout>
+</LinearLayout>
