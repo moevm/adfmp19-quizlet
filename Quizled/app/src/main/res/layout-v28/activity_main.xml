@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorGray"
+        tools:context=".MainActivity" android:orientation="vertical">
+
+    <include
+            android:layout_margin="20dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            layout="@layout/word_of_the_day" android:id="@+id/include"
+            android:layout_marginTop="24dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout"/>
+    <android.support.constraint.ConstraintLayout android:layout_width="0dp"
+                                                 android:layout_height="65dp"
+                                                 android:id="@+id/constraintLayout"
+                                                 app:layout_constraintEnd_toEndOf="parent"
+                                                 android:layout_marginEnd="24dp" android:layout_marginRight="24dp"
+                                                 app:layout_constraintStart_toStartOf="parent"
+                                                 android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
+                                                 app:layout_constraintTop_toBottomOf="@+id/include"
+                                                 app:layout_constraintBottom_toTopOf="@+id/textView2"
+                                                 android:layout_marginTop="24dp">
+        <Button
+                android:id="@+id/quizButton"
+                android:text="@string/start_quiz"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                style="@android:style/Widget.Button"
+                android:textSize="20sp"
+                android:typeface="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginEnd="24dp" android:layout_marginRight="24dp"
+                app:layout_constraintStart_toEndOf="@+id/wordsButton"
+                app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"/>
+        <Button
+                android:id="@+id/wordsButton"
+                android:text="@string/words"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                style="@android:style/Widget.Button"
+                android:textSize="20sp" android:typeface="sans"
+                app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toStartOf="@+id/quizButton"
+                android:layout_marginEnd="32dp" android:layout_marginRight="32dp" android:layout_marginLeft="24dp"
+                android:layout_marginStart="24dp" app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+    <TextView
+            android:text="@string/stats"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2"
+            android:textSize="30sp"
+            android:textAlignment="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="5dp" android:typeface="normal" app:fontFamily="sans-serif-medium"
+            android:textColor="@color/colorText"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintBottom_toTopOf="@+id/include2"/>
+    <include
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            layout="@layout/main_activity_statistics" android:id="@+id/include2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="23dp" app:layout_constraintBottom_toTopOf="@+id/button3"
+            android:layout_marginTop="8dp" app:layout_constraintTop_toBottomOf="@+id/textView2"/>
+
+    <Button
+            android:background="@drawable/rounded_corned_violet"
+            android:text="@string/share"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" android:id="@+id/button3" android:layout_weight="1"
+            android:textSize="18sp" android:textColor="@color/colorText" android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="32dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="32dp" android:layout_marginStart="32dp"/>
+
+
+</android.support.constraint.ConstraintLayout>
