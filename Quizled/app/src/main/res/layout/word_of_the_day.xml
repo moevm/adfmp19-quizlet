@@ -16,7 +16,7 @@
             android:text="@string/wordoftheday_original"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:id="@+id/textView7"
+            android:id="@+id/fieldOriginalWord"
             android:textSize="36sp" android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="10dp" android:layout_marginStart="10dp" app:layout_constraintEnd_toEndOf="parent"
@@ -32,7 +32,7 @@
             android:paddingStart="60dp"
             android:paddingEnd="60dp"
             android:paddingLeft="60dp"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/fieldOriginalWord" android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
     />
 

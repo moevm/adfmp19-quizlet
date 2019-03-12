@@ -4,67 +4,19 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:background="@color/colorGray"
-              android:orientation="vertical">
+              android:orientation="vertical" android:id="@+id/wordsList">
 
     <!--<ScrollView-->
     <!--android:layout_width="match_parent"-->
     <!--android:layout_height="wrap_content">-->
     <!--<RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content">-->
 
-    <include android:layout_marginTop="30dp"
-             android:layout_marginRight="20dp"
-             android:layout_marginLeft="20dp"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             layout="@layout/word_of_the_day_simple"/>
-    <include android:layout_marginTop="13dp"
-             android:layout_marginRight="20dp"
-             android:layout_marginLeft="20dp"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             layout="@layout/word_of_the_day_simple"/>
-    <include android:layout_marginTop="13dp"
-             android:layout_marginRight="20dp"
-             android:layout_marginLeft="20dp"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             layout="@layout/word_of_the_day_simple"/>
-    <include android:layout_marginTop="13dp"
-             android:layout_marginRight="20dp"
-             android:layout_marginLeft="20dp"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             layout="@layout/word_of_the_day_simple"/>
-    <include android:layout_marginTop="13dp"
-             android:layout_marginRight="20dp"
-             android:layout_marginLeft="20dp"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             layout="@layout/word_of_the_day_simple"/>
-    <include android:layout_marginTop="13dp"
-             android:layout_marginRight="20dp"
-             android:layout_marginLeft="20dp"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             layout="@layout/word_of_the_day_simple"/>
-    <include android:layout_marginTop="13dp"
-             android:layout_marginRight="20dp"
-             android:layout_marginLeft="20dp"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             layout="@layout/word_of_the_day_simple"/>
-    <include android:layout_marginTop="13dp"
-             android:layout_marginRight="20dp"
-             android:layout_marginLeft="20dp"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             layout="@layout/word_of_the_day_simple"/>
-    <include android:layout_marginTop="13dp"
-             android:layout_marginRight="20dp"
-             android:layout_marginLeft="20dp"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             layout="@layout/word_of_the_day_simple"/>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/scrollView">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="vertical" android:id="@+id/ll"/>
+    </ScrollView>
     <!--</RelativeLayout>-->
 
     <!--</ScrollView>-->

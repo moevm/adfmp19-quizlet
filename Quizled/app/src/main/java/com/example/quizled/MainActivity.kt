@@ -8,22 +8,36 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    var model = AppModel.instance
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val prefs = this.getSharedPreferences("com.example.quizled.storage", 0)
+        val savedWords = prefs!!.getStringSet("words", setOf<String>())
+        model.restore(savedWords)
+
         quizButton.setOnClickListener{
-            println("HELLO")
-            val intent = Intent(this, Word_bank::class.java);
-            startActivity(intent);
+            val intent = Intent(this, Quiz_Activity::class.java)
+            startActivity(intent)
+
         }
 
 
         wordsButton.setOnClickListener{
-            println("HELLO2")
-            val intent = Intent(this, Quiz_Activity::class.java);
-            startActivity(intent);
+            val intent = Intent(this, Word_bank::class.java)
+            startActivity(intent)
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        val prefs = this.getSharedPreferences("com.example.quizled.storage", 0)
+        val editor = prefs!!.edit()
+        editor.putStringSet("words", model.save())
+        editor.commit()
     }
 
 

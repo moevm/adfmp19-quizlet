@@ -36,18 +36,18 @@
                     android:inputType="textPersonName"
                     android:text="@string/add_word_source"
                     android:ems="10"
-                    android:id="@+id/editText" android:layout_weight="1"/>
+                    android:id="@+id/sourceWord" android:layout_weight="1"/>
             <EditText
                     android:layout_width="149dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
                     android:text="@string/add_word_translation"
                     android:ems="10"
-                    android:id="@+id/editText2" android:layout_weight="1"/>
+                    android:id="@+id/translationWord" android:layout_weight="1"/>
             <Button
                     android:text="ADD"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/button4" android:layout_weight="1"/>
+                    android:layout_height="wrap_content" android:id="@+id/addWordButton" android:layout_weight="1"/>
         </LinearLayout>
 
 </LinearLayout>

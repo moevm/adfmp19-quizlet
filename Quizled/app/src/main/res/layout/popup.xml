@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_corner">
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:background="@color/colorPrimary">
 
 
     <LinearLayout
             android:layout_marginTop="10dp"
-            android:layout_width="280dp"
-            android:layout_height="260dp" android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:orientation="vertical"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
             android:background="@drawable/rounded_corner">
@@ -18,13 +19,13 @@
                 android:text="@string/wordoftheday_original"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView7"
+                android:id="@+id/fieldOriginalWord"
                 android:textSize="36sp" android:textAlignment="center"/>
         <TextView
                 android:text="@string/wordoftheday_translation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/textView8"
+                android:id="@+id/fieldTranslatedWord"
                 android:textAlignment="center"
                 android:paddingStart="150dp"
                 android:paddingLeft="60dp"
@@ -35,14 +36,14 @@
                 android:textAlignment="center"
                 android:text="@string/stats_successrate_percentage"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView11" android:textSize="36sp"
+                android:layout_height="wrap_content" android:id="@+id/fieldSuccessRate" android:textSize="36sp"
                 android:textStyle="bold"/>
         <TextView
                 android:paddingLeft="40dp"
                 android:textAlignment="center"
                 android:text="@string/stats_successrate2"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/textView12"
+                android:layout_height="wrap_content" android:id="@+id/fieldSuccessInfo"
                 android:textAppearance="@style/TextAppearance.AppCompat.Display1" android:textSize="14sp"
                 android:textStyle="bold|italic"/>
         <android.support.v7.widget.AppCompatButton
@@ -53,7 +54,7 @@
                 android:textColor="@color/colorGray"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:backgroundTint="#A31C1C"/>
+                app:backgroundTint="#A31C1C" android:id="@+id/deleteButton"/>
 
     </LinearLayout>
 </RelativeLayout>

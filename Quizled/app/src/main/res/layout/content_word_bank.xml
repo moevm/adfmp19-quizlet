@@ -9,6 +9,6 @@
         android:layout_height="match_parent"
         tools:context=".Word_bank">
 
-    <include layout="@layout/word_bank_activity"/>
+    <include layout="@layout/word_bank_activity" android:id="@+id/contents2"/>
 
 </android.support.v4.widget.NestedScrollView>

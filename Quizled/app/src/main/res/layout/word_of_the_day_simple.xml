@@ -10,7 +10,7 @@
             android:text="@string/wordoftheday_original"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView7"
+            android:id="@+id/fieldOriginalWord"
             android:textSize="36sp" android:textAlignment="center"/>
     <TextView
             android:text="@string/wordoftheday_translation"

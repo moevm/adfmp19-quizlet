@@ -51,7 +51,7 @@
             </android.support.design.widget.CollapsingToolbarLayout>
         </android.support.design.widget.AppBarLayout>
 
-        <include layout="@layout/content_word_bank"/>
+        <include layout="@layout/content_word_bank" android:id="@+id/contents"/>
 
 
     </android.support.design.widget.CoordinatorLayout>

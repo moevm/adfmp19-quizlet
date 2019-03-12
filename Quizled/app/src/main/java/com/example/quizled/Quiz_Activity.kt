@@ -15,9 +15,8 @@ class Quiz_Activity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz_)
 
         backToMain2.setOnClickListener{
-            println("HELLO")
-            val intent = Intent(this, MainActivity::class.java);
-            startActivity(intent);
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 
