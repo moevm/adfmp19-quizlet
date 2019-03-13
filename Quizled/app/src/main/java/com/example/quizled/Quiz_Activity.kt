@@ -2,10 +2,8 @@ package com.example.quizled
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity;
 import android.view.inputmethod.EditorInfo
-import kotlinx.android.synthetic.main.activity_main.*
 
 import kotlinx.android.synthetic.main.activity_quiz_.*
 import kotlinx.android.synthetic.main.content_quiz_.*
@@ -31,7 +29,7 @@ class Quiz_Activity : AppCompatActivity() {
     private fun nextRound() {
         val randomWord = model.randomWord()
 
-        fieldOriginalWord.setText(randomWord.originalWord)
+        wotdOriginal.setText(randomWord.originalWord)
 
         fieldForTranslation.setOnEditorActionListener { v, actionId, event ->
             if(actionId == EditorInfo.IME_ACTION_DONE){

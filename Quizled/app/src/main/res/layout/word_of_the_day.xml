@@ -16,7 +16,7 @@
             android:text="@string/wordoftheday_original"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:id="@+id/fieldOriginalWord"
+            android:id="@+id/wotdOriginal"
             android:textSize="36sp" android:textAlignment="center"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginLeft="10dp" android:layout_marginStart="10dp" app:layout_constraintEnd_toEndOf="parent"
@@ -27,13 +27,13 @@
             android:text="@string/wordoftheday_translation"
             android:layout_width="255dp"
             android:layout_height="24dp"
-            android:id="@+id/textView8"
+            android:id="@+id/wotdTranslation"
             android:textAlignment="center"
             android:paddingStart="60dp"
             android:paddingEnd="60dp"
             android:paddingLeft="60dp"
-            app:layout_constraintTop_toBottomOf="@+id/fieldOriginalWord" android:layout_marginEnd="8dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/wotdOriginal" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
     />
 
 </android.support.constraint.ConstraintLayout>

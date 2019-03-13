@@ -1,5 +1,6 @@
 package com.example.quizled
 
+import android.app.Application
 import kotlinx.android.synthetic.main.word_card.view.*
 import kotlin.math.roundToInt
 
@@ -23,6 +24,10 @@ class AppModel private constructor() {
             for(word in wordsList) {
                 successful += word.successfulAttempts
                 total += word.totalAttempts
+            }
+
+            if (total == 0) {
+                return 0
             }
 
             val rate = successful.toFloat() / total.toFloat() * 100.0F
@@ -77,5 +82,16 @@ class AppModel private constructor() {
         return wordsList.random()
     }
 
+    fun loadSetFromAssets(app: Application, name: String) {
+        val lines = app.assets.open(name).bufferedReader().use{
+            it.readText()
+        }
+
+        for (line in lines.lines()) {
+            val w = line.split("|")
+            val newWord = Word(original = w[0], translated = w[1])
+            wordsList.add(newWord)
+        }
+    }
 
 }

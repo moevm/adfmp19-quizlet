@@ -11,10 +11,7 @@ import kotlinx.android.synthetic.main.word_bank_activity_search_add.*
 import android.app.Activity
 import android.app.Dialog
 import android.view.Window
-import android.view.inputmethod.EditorInfo
 import android.widget.Button
-import android.widget.SearchView
-import kotlinx.android.synthetic.main.content_quiz_.*
 import kotlin.math.roundToInt
 
 
@@ -92,7 +89,7 @@ class Word_bank : AppCompatActivity() {
 
         val w = model.findWord(word)!!
 
-        val originalLabel = dialog.findViewById(R.id.fieldOriginalWord) as TextView
+        val originalLabel = dialog.findViewById(R.id.wotdOriginal) as TextView
         originalLabel.setText(w.originalWord)
 
         val translatedLabel = dialog.findViewById(R.id.fieldTranslatedWord) as TextView

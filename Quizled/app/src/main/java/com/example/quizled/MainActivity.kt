@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_activity_statistics.*
+import kotlinx.android.synthetic.main.word_of_the_day.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,10 +18,12 @@ class MainActivity : AppCompatActivity() {
 
         println("oncreate")
 
-
-
         val prefs = this.getSharedPreferences("com.example.quizled.storage", 0)
         val savedWords = prefs!!.getStringSet("words", setOf<String>())
+        if(savedWords.isEmpty()) {
+            model.loadSetFromAssets(this.application, "defaultSet.txt")
+        }
+
         println("restored ${savedWords.size} entries")
         model.restore(savedWords)
 
@@ -34,6 +37,19 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, Word_bank::class.java)
             startActivity(intent)
         }
+
+        shareButton.setOnClickListener{
+            model.wordsList.clear()
+            model.loadSetFromAssets(this.application, "defaultSet.txt")
+        }
+
+        updateWOTD()
+    }
+
+    fun updateWOTD() {
+        val rw = model.randomWord()
+        wotdOriginal.setText(rw.originalWord)
+        wotdTranslation.setText(rw.translatedWord)
     }
 
     override fun onResume() {
