@@ -11,13 +11,23 @@ import kotlinx.android.synthetic.main.word_bank_activity_search_add.*
 import android.app.Activity
 import android.app.Dialog
 import android.view.Window
+import android.view.inputmethod.EditorInfo
 import android.widget.Button
+import android.widget.SearchView
+import kotlinx.android.synthetic.main.content_quiz_.*
 import kotlin.math.roundToInt
 
 
 class Word_bank : AppCompatActivity() {
 
     var model = AppModel.instance
+    var wordFilter = ""
+    var sortingType = SortingMethod.Ascending
+
+    enum class SortingMethod {
+        Ascending,
+        Descending
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,12 +38,35 @@ class Word_bank : AppCompatActivity() {
             startActivity(intent)
         }
 
+        sortButton.setOnClickListener {
+            when (sortingType) {
+                SortingMethod.Ascending -> sortingType = SortingMethod.Descending
+                SortingMethod.Descending -> sortingType = SortingMethod.Ascending
+            }
+            refreshView()
+        }
+
         addWordButton.setOnClickListener{
             if(!sourceWord.text.isEmpty() && !translationWord.text.isEmpty()) {
                 model.addWord(Word(sourceWord.text.toString(), translationWord.text.toString()))
                 refreshView()
             }
         }
+
+        filterField.setOnQueryTextListener(object : android.support.v7.widget.SearchView.OnQueryTextListener {
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                println("query: ${newText}")
+                refreshView()
+                return false
+            }
+
+            override fun onQueryTextSubmit(query: String): Boolean {
+                return false
+            }
+
+        })
+
 
         refreshView()
 
@@ -91,11 +124,28 @@ class Word_bank : AppCompatActivity() {
     }
 
     private fun refreshView() {
+
+        val filter = filterField.query.toString()
+        var allWords: List<Word> = model.wordsList
+        if (!filter.isEmpty()) {
+             allWords = model.wordsList.filter {
+                it.originalWord.contains(filter, ignoreCase = true)
+            }
+        }
+
+        when (sortingType) {
+            SortingMethod.Ascending ->
+                allWords = allWords.sortedBy { it.originalWord }
+            SortingMethod.Descending ->
+                allWords = allWords.sortedByDescending { it.originalWord }
+        }
+
+
         ll.removeAllViews()
-        for(word in model.wordsList) {
+        for(word in allWords) {
             val wc = createWordCard(word)
             wc.setOnClickListener(::cardLongPressed)
-            ll.addView(wc, 0)
+            ll.addView(wc)
         }
         println("refresh")
 

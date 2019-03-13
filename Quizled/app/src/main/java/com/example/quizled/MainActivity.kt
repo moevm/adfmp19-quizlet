@@ -17,6 +17,8 @@ class MainActivity : AppCompatActivity() {
 
         println("oncreate")
 
+
+
         val prefs = this.getSharedPreferences("com.example.quizled.storage", 0)
         val savedWords = prefs!!.getStringSet("words", setOf<String>())
         println("restored ${savedWords.size} entries")

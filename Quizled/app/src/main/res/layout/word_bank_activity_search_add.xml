@@ -14,7 +14,7 @@
 
                     android:layout_height="match_parent" layout_width="wrap_content"
 
-                    layout_height="wrap_content">
+                    layout_height="wrap_content" android:id="@+id/filterField">
 
             </android.support.v7.widget.SearchView>
             <ImageButton android:layout_width="match_parent"
@@ -22,7 +22,7 @@
                          android:src="@mipmap/ic_sort_3"
                          android:scaleType="centerCrop"
                          android:background="@mipmap/ic_sort_3"
-            />
+                         android:id="@+id/sortButton"/>
         </LinearLayout>
 
         <LinearLayout
