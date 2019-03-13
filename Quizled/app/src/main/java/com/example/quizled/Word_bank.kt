@@ -1,23 +1,18 @@
 package com.example.quizled
 
-import com.example.quizled.R
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
-import com.example.quizled.MainActivity
-import com.example.quizled.WordCard
 import kotlinx.android.synthetic.main.activity_word_bank.*
 import kotlinx.android.synthetic.main.word_bank_activity.*
 import kotlinx.android.synthetic.main.word_bank_activity_search_add.*
-import kotlinx.android.synthetic.main.word_card.view.*
-import android.R.drawable.btn_dialog
-import android.view.Window.FEATURE_NO_TITLE
 import android.app.Activity
 import android.app.Dialog
 import android.view.Window
 import android.widget.Button
+import kotlin.math.roundToInt
 
 
 class Word_bank : AppCompatActivity() {
@@ -49,12 +44,12 @@ class Word_bank : AppCompatActivity() {
         if (view != null) {
             println("${view.wordOriginal} - ${view.wordTranslated}")
 
-            showDialog(this, view.wordOriginal)
+            showPopup(this, view.wordOriginal)
         }
 
     }
 
-    fun showDialog(activity: Activity, word: String) {
+    fun showPopup(activity: Activity, word: String) {
         val dialog = Dialog(activity)
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
         dialog.requestWindowFeature(Window.FEATURE_SWIPE_TO_DISMISS)
@@ -72,12 +67,12 @@ class Word_bank : AppCompatActivity() {
 
         val successLabel = dialog.findViewById(R.id.fieldSuccessRate) as TextView
 
-        var successRate: Int = 0
+        var successRate: Float = 0.0F
         if(w.totalAttempts != 0) {
-            successRate = w.successfulAttempts / w.totalAttempts
+            successRate = w.successfulAttempts.toFloat() / w.totalAttempts.toFloat() * 100
         }
 
-        successLabel.setText("${successRate}%")
+        successLabel.setText("${successRate.roundToInt()}%")
 
         val successInfoLabel = dialog.findViewById(R.id.fieldSuccessInfo) as TextView
         successInfoLabel.setText("Success rate: ${w.successfulAttempts} of ${w.totalAttempts}")

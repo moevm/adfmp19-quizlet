@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.main_activity_statistics.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,8 +15,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        println("oncreate")
+
         val prefs = this.getSharedPreferences("com.example.quizled.storage", 0)
         val savedWords = prefs!!.getStringSet("words", setOf<String>())
+        println("restored ${savedWords.size} entries")
         model.restore(savedWords)
 
         quizButton.setOnClickListener{
@@ -24,15 +28,23 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-
         wordsButton.setOnClickListener{
             val intent = Intent(this, Word_bank::class.java)
             startActivity(intent)
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        totalWordsCountLabel.setText("${model.wordsCount}")
+        totalSuccessRateLabel.setText("${model.totalSuccessRate}%")
+    }
+
     override fun onDestroy() {
         super.onDestroy()
+
+        println("ondestroy")
 
         val prefs = this.getSharedPreferences("com.example.quizled.storage", 0)
         val editor = prefs!!.edit()

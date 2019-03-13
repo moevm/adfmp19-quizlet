@@ -1,5 +1,8 @@
 package com.example.quizled
 
+import kotlinx.android.synthetic.main.word_card.view.*
+import kotlin.math.roundToInt
+
 
 class AppModel private constructor() {
     init { println("This ($this) is a singleton") }
@@ -9,6 +12,23 @@ class AppModel private constructor() {
     }
 
     var wordsList = arrayListOf<Word>()
+
+    val wordsCount get() = wordsList.size
+
+    val totalSuccessRate: Int
+        get() {
+            var successful: Int = 0
+            var total: Int = 0
+
+            for(word in wordsList) {
+                successful += word.successfulAttempts
+                total += word.totalAttempts
+            }
+
+            val rate = successful.toFloat() / total.toFloat() * 100.0F
+
+            return rate.roundToInt()
+        }
 
     fun addWord(w: Word) : Boolean {
         wordsList.add(w)
@@ -45,10 +65,17 @@ class AppModel private constructor() {
     }
 
     fun restore(from: Set<String>) {
+        wordsList.clear()
         for (word in from) {
             var w = Word("1", "2")
             w.fromString(word)
             wordsList.add(w)
         }
     }
+
+    fun randomWord() : Word {
+        return wordsList.random()
+    }
+
+
 }

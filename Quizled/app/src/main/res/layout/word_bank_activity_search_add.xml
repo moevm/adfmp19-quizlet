@@ -34,16 +34,14 @@
                     android:layout_width="149dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:text="@string/add_word_source"
                     android:ems="10"
-                    android:id="@+id/sourceWord" android:layout_weight="1"/>
+                    android:id="@+id/sourceWord" android:layout_weight="1" android:hint="original "/>
             <EditText
                     android:layout_width="149dp"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
-                    android:text="@string/add_word_translation"
                     android:ems="10"
-                    android:id="@+id/translationWord" android:layout_weight="1"/>
+                    android:id="@+id/translationWord" android:layout_weight="1" android:hint="translation "/>
             <Button
                     android:text="ADD"
                     android:layout_width="wrap_content"
