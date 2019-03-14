@@ -39,11 +39,20 @@ class MainActivity : AppCompatActivity() {
         }
 
         shareButton.setOnClickListener{
-            model.wordsList.clear()
-            model.loadSetFromAssets(this.application, "defaultSet.txt")
+            /*model.wordsList.clear()
+            model.loadSetFromAssets(this.application, "defaultSet.txt")*/
+            shareProgress()
         }
 
         updateWOTD()
+    }
+
+    fun shareProgress() {
+        val shareIntent = Intent()
+        shareIntent.action = Intent.ACTION_SEND
+        shareIntent.type="text/plain"
+        shareIntent.putExtra(Intent.EXTRA_TEXT, "I have ${model.wordsCount} words in my Quizled library and my success rate is ${model.totalSuccessRate}%! #getquizled")
+        startActivity(Intent.createChooser(shareIntent, "Share your progress:"))
     }
 
     fun updateWOTD() {
