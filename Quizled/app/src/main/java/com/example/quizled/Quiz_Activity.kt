@@ -43,9 +43,8 @@ class Quiz_Activity : AppCompatActivity() {
                 }
 
                 randomWord.totalAttempts += 1
-
                 scoreLabel.setText("Score: ${runScore}/${runAttempts}")
-
+                fieldForTranslation.setText("")
                 nextRound()
 
                 true

@@ -82,14 +82,23 @@
     <Button
             android:background="@drawable/rounded_corned_violet"
             android:text="@string/share"
-            android:layout_width="0dp"
+            android:layout_width="259dp"
             android:layout_height="wrap_content" android:id="@+id/shareButton" android:layout_weight="1"
             android:textSize="18sp" android:textColor="@color/colorText" android:layout_marginBottom="24dp"
-            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="32dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="32dp" android:layout_marginStart="32dp"
+            android:layout_marginStart="32dp"
     />
+    <Button
+            android:background="@drawable/rounded_corned_violet"
+            android:text="..."
+            android:layout_width="88dp"
+            android:layout_height="wrap_content" android:id="@+id/settingsButton" android:layout_weight="1"
+            android:textSize="18sp" android:textColor="@color/colorText" android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="19dp"
+            app:layout_constraintStart_toEndOf="@+id/shareButton" android:layout_marginStart="8dp"
+            android:elevation="8dp" android:backgroundTint="@color/colorSpinner"/>
 
 
 </android.support.constraint.ConstraintLayout>

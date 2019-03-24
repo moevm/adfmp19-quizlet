@@ -94,4 +94,28 @@ class AppModel private constructor() {
         }
     }
 
+    fun getProgress() : Int {
+        var successfulWords = 0
+        for(word in wordsList) {
+            if(word.successfulAttempts > 0) {
+                successfulWords += 1
+            }
+        }
+
+        val res = (successfulWords.toFloat() / wordsCount.toFloat() * 100).toInt()
+
+        if(res > 100) {
+            return 100
+        }
+
+        return res
+    }
+
+    fun resetStats() {
+        for(word in wordsList) {
+            word.successfulAttempts = 0
+            word.totalAttempts = 0
+        }
+    }
+
 }

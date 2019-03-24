@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.example.quizled.SettingsActivity">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="395dp"
+            android:layout_height="587dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintBottom_toBottomOf="parent"
+    >
+        <Button
+                android:text="Reset Statctics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/resetStatisticsButton"
+                android:textColor="@color/colorOrange"/>
+        <Button
+                android:text="Reset All Words"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" android:id="@+id/resetAllButton"
+                android:textColor="@color/colorOrange"/>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

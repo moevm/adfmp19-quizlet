@@ -4,9 +4,16 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.PieData
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.main_activity_statistics.*
 import kotlinx.android.synthetic.main.word_of_the_day.*
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.utils.ColorTemplate
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,7 +51,41 @@ class MainActivity : AppCompatActivity() {
             shareProgress()
         }
 
+        settingsButton.setOnClickListener{
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
         updateWOTD()
+
+        setupPieChart(model.getProgress())
+    }
+
+    fun setupPieChart(progress: Int) {
+        mainPieChart.setUsePercentValues(true)
+        mainPieChart.description.isEnabled = false
+        mainPieChart.centerText = "Progress\n $progress%"
+        mainPieChart.setCenterTextSize(25f)
+        mainPieChart.holeRadius = 70f
+        mainPieChart.setHoleColor(0)
+        mainPieChart.legend.isEnabled = false
+
+        val yvalues = ArrayList<PieEntry>()
+        val rest = (100 - progress).toFloat()
+        yvalues.add(PieEntry(progress.toFloat(), 0f))
+        yvalues.add(PieEntry(rest, 1f))
+
+        val dataSet = PieDataSet(yvalues, "data")
+        dataSet.setDrawIcons(false)
+        val colors = ArrayList<Int>()
+        colors.add(ColorTemplate.getHoloBlue())
+        colors.add(0)
+        dataSet.setColors(colors)
+
+        val pieData = PieData(dataSet)
+        pieData.setValueTextSize(0f)
+        mainPieChart.data = pieData
+        mainPieChart.invalidate()
     }
 
     fun shareProgress() {
@@ -64,6 +105,7 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
 
+        setupPieChart(model.getProgress())
         totalWordsCountLabel.setText("${model.wordsCount}")
         totalSuccessRateLabel.setText("${model.totalSuccessRate}%")
     }
