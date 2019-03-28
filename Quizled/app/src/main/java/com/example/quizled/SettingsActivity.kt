@@ -15,7 +15,10 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         resetStatisticsButton.setOnClickListener {
-            lateinit var dialog: AlertDialog
+
+            model.resetStats()
+
+            /*lateinit var dialog: AlertDialog
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Reset all statistics")
             builder.setMessage("Are you sure?")
@@ -29,11 +32,15 @@ class SettingsActivity : AppCompatActivity() {
             builder.setPositiveButton("Reset", dialogClickListener)
             builder.setNegativeButton("Cancel", dialogClickListener)
             dialog = builder.create()
-            dialog.show()
+            dialog.show()*/
         }
 
         resetAllButton.setOnClickListener {
-            lateinit var dialog: AlertDialog
+
+            model.wordsList.clear()
+            model.loadSetFromAssets(this.application, "defaultSet.txt")
+
+            /*lateinit var dialog: AlertDialog
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Reset all words")
             builder.setMessage("Are you sure?")
@@ -50,7 +57,7 @@ class SettingsActivity : AppCompatActivity() {
             builder.setPositiveButton("Reset", dialogClickListener)
             builder.setNegativeButton("Cancel", dialogClickListener)
             dialog = builder.create()
-            dialog.show()
+            dialog.show()*/
         }
     }
 }

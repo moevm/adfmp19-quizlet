@@ -95,6 +95,9 @@ class AppModel private constructor() {
     }
 
     fun getProgress() : Int {
+
+        //return 40
+
         var successfulWords = 0
         for(word in wordsList) {
             if(word.successfulAttempts > 0) {
